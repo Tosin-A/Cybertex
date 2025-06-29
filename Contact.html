@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - CyberTech</title>
+  <link rel="stylesheet" href="cyberstyle.css">
+</head>
+<body>
+  <canvas id="background"></canvas>
+  
+  <nav>
+    <div class="logo">CyberTech</div>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Pricing.html">Pricing</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="About.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <p class="contact-intro">Have questions or need support? Fill out the form below and we'll get back to you within 24 hours.</p>
+    
+    <form class="contact-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone (Optional)</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+      </div>
+      
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>Select a subject</option>
+          <option value="support">Technical Support</option>
+          <option value="sales">Sales Inquiry</option>
+          <option value="feedback">Product Feedback</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+    
+    <div class="contact-info">
+      <h3>Alternative Contact Methods</h3>
+      <p><i class="fas fa-envelope"></i> Email: ayanfex@icloud.com</p>
+      <p><i class="fas fa-phone"></i> Phone: +447462221208 </p>
+    </div>
+  </div>
+</body>
+</html>

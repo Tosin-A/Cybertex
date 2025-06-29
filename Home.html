@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberTech Scanner</title>
+  <link rel="stylesheet" href="cyberstyle.css">
+  <script src="javas.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body>
+  <canvas id="background"></canvas>
+
+  <nav>
+    <div class="logo">CyberTech</div>
+    <div class="menu-toggle">☰</div>
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Pricing.html">Pricing</a></li>
+      <li><a href="Contact.html">Contact</a></li>
+      <li><a href="About.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <div class="hero-section">
+      <h1>Is Your Website <span class="highlight">Hackable</span>?</h1>
+      <p class="subtitle">Scan your website for vulnerabilities in 60 seconds — no tech skills needed.<br>Protect your digital assets with our advanced security scanner</p>
+      <form class="scanner-form" onsubmit="event.preventDefault(); scanWebsite();">
+        <div class="input-group">
+          <input type="email" id="emailInput" placeholder="Enter your email for scan results" required />
+          <input type="text" id="websiteInput" placeholder="Enter your website URL (e.g., example.com)" />
+          <button type="submit" class="scan-btn">
+            <i class="fas fa-shield-alt"></i> Scan Now
+          </button>
+        </div>
+      </form>
+      <div class="features">
+        <div class="feature-item">
+          <span>Instant Results</span>
+        </div>
+        <div class="feature-item">
+          <span>256-bit Encryption</span>
+        </div>
+        <div class="feature-item">
+          <span>Detailed Reports</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="report" id="report">
+      <h2><i class="fas fa-file-alt"></i> Scan Report</h2>
+      <div class="report-content" id="reportContent">
+        <div class="placeholder">
+          <i class="fas fa-search"></i>
+          <p>Enter a URL to scan for vulnerabilities</p>
+        </div>
+        <div class="spinner" id="loadingSpinner" style="display: none;"></div>
+        <button id="downloadPDF" class="report-link-btn" onclick="downloadReport()">Download Report as PDF</button>
+      </div>
+    </div>
+
+    <div class="info-cards">
+      <div class="info-card">
+        <i class="fas fa-globe"></i>
+        <h3>Web Security</h3>
+        <p>Comprehensive scanning for common web vulnerabilities including XSS, SQLi, and more.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-server"></i>
+        <h3>ReCaptcha Website Protection</h3>
+        <p>Check for server misconfigurations and outdated software that could be exploited.</p>
+      </div>
+      <div class="info-card">
+        <i class="fas fa-shield-virus"></i>
+        <h3>Malware Detection</h3>
+        <p>Identify potential malware infections and suspicious file modifications.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+      <div class="contact-info">
+        <a href="mailto:adedokuntosin1@gmail.com"><i class="fas fa-envelope"></i> adedokuntosin1@gmail.com</a>
+        <a href="tel:+4474622212008"><i class="fas fa-phone"></i> +44 7462 2212008</a>
+      </div>
+      <div class="copyright">&copy; 2025 CyberTech Security Solutions</div>
+    </footer>
+</body>
+</html>
