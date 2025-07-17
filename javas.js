@@ -1,5 +1,16 @@
 function scanWebsite() {
-    const url = document.getElementById('websiteInput').value;
+    const downloadBtn = document.getElementById('downloadPDF');
+    console.log('Scan started: hiding and disabling download button');
+    downloadBtn.style.display = 'inline-block';  // forced visible for debug
+    downloadBtn.disabled = false;                 // forced enabled for debug
+    console.log('Download button forced visible and enabled on scan start');
+
+    let url = document.getElementById('websiteInput').value.trim();
+    url = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    if (!url || !url.includes('.')) {
+        alert('Please enter a valid domain like example.com');
+        return;
+    }
     const report = document.getElementById('report');
     const reportContent = document.getElementById('reportContent');
     const spinner = document.getElementById('loadingSpinner');
@@ -8,14 +19,14 @@ function scanWebsite() {
     if (spinner) spinner.style.display = 'block';
     reportContent.innerText = 'Performing scan for ' + url + '...';
     
-    fetch('http://127.0.0.1:8080/scan', {
+    fetch('https://backend-sa9j.onrender.com/scan', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({ url: url })
     })
-    .then(response => response.json())
+    .then(response => response.x())
     .then(data => {
         reportContent.innerHTML = `
             <strong>Scan Complete for ${data.domain}</strong><br/>
@@ -38,11 +49,18 @@ function scanWebsite() {
         setTimeout(() => {
           reportContent.classList.remove('success-animate');
         }, 2000);
+        console.log('Scan successful: showing and enabling download button');
+        downloadBtn.style.display = 'inline-block';
+        downloadBtn.disabled = false;
     })
-    .catch(error => {
+    .catch(async error => {
         if (spinner) spinner.style.display = 'none';
-        reportContent.innerHTML = '<span class="error-message">An error occurred during the scan. Please check the domain and try again.</span>';
+        const errorText = error?.message || 'Scan failed. Try again later.';
+        reportContent.innerHTML = `<span class="error-message">Error during scan: ${errorText}</span>`;
         console.error('Scan error:', error);
+        console.log('Scan failed: hiding and disabling download button');
+        downloadBtn.style.display = 'none';
+        downloadBtn.disabled = true;
     });
 }
 
